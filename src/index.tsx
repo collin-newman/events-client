@@ -5,7 +5,7 @@ import { App } from "./App";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "", // your API url goes here,
+  uri: "http://eventsgraphql-env.eba-2zsmm9ri.us-east-1.elasticbeanstalk.com/graphql", // your API url goes here,
   cache: new InMemoryCache(),
 });
 

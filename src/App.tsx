@@ -3,7 +3,16 @@ import styled from "styled-components";
 
 export const App = () => {
   const { data, loading, error } = useQuery(gql`
-    ## your events query goes here
+    query {
+      app(id:"60a55ec512dd1a2d206dac5b") {
+        events {
+          id
+          name
+          image
+          description
+        }
+      }
+    }
   `);
 
   if (loading) {
@@ -19,7 +28,7 @@ export const App = () => {
     name: string;
     image: string;
     description: string;
-  }> = []; // data from query goes here
+  }> = [...data.app.events]; // data from query goes here
 
   return (
     <Wrapper>
@@ -32,6 +41,7 @@ export const App = () => {
               src={event.image}
               height={250}
               style={{ borderRadius: "20px" }}
+              alt="event"
             />
           </FlexCol>
           <EventDescription>
